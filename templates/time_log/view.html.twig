@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+     <h1>Overview Information</h1>
+    <p>Weekly Total Time: {{ weeklyTotal }} minutes</p>
+    <p>Monthly Total Time: {{ monthlyTotal }} minutes</p>
+    <a href="{{ path('create_time_log') }}" class="btn btn-primary">Create New Log Entry</a>
+    <a href="" class="btn btn-primary">Export as CSV</a>
+    <h1>Time Logs Table</h1>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for timeLog in timeLogs %}
+                <tr>
+                    <td>{{ timeLog.id }}</td>
+                    <td>{{ timeLog.startTime|date('Y-m-d H:i:s') }}</td>
+                    <td>{{ timeLog.endTime|date('Y-m-d H:i:s') }}</td>
+                    <td>{{ timeLog.description }}</td>
+                    <td>
+                        <a href="{{ path('edit_time_log', { 'id': timeLog.id }) }}" class="btn btn-primary">Edit</a>
+                        <a href="{{ path('delete_time_log', { 'id': timeLog.id }) }}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -9,7 +9,6 @@ return [
     false, // $matchHost
     [ // $staticRoutes
         '/time/log' => [[['_route' => 'app_time_log', '_controller' => 'App\\Controller\\TimeLogController::index'], null, null, null, false, false, null]],
-        '/export' => [[['_route' => 'export_time_log', '_controller' => 'App\\Controller\\TimeLogController::exportTimeLog'], null, null, null, false, false, null]],
         '/calculate-totals' => [[['_route' => 'calculate_totals', '_controller' => 'App\\Controller\\TimeLogController::calculateTotals'], null, ['GET' => 0], null, false, false, null]],
         '/create' => [[['_route' => 'create_time_log', '_controller' => 'App\\Controller\\TimeLogController::createTimeLog'], null, null, null, false, false, null]],
         '/view' => [[['_route' => 'create_view_log', '_controller' => 'App\\Controller\\TimeLogController::viewTimeLogs'], null, null, null, false, false, null]],
